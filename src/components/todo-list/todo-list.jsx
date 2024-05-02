@@ -36,8 +36,8 @@ export const TodoList = (props) => {
       {todos.length ? (
         <div className="todo-list-content">
           {todos.map((todoItem) => (
-            <Checkbox
-              key={todoItem.id}
+            <Checkbox key={todoItem.id}
+              id={todoItem.id}
               label={todoItem.label}
               checked={todoItem.checked}
               onClick={() => toggleCheck(todoItem.id)}

@@ -3,7 +3,7 @@ import './checkbox.scss';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 export const Checkbox = ({
- key,onClick, checked, onDelete, label, onKeyUp,
+ id,onClick, checked, onDelete, label, onKeyUp,
 }) => (
   <div className="checkbox">
     <div
@@ -12,15 +12,15 @@ export const Checkbox = ({
       aria-checked
       className="checkbox-content"
       onClick={onClick}
-      onKeyUp={(e)=>onKeyUp(e,key)}
+      onKeyUp={(e)=>onKeyUp(e,id)}
     >
      
-      <input tabIndex="-1" type="checkbox" checked={checked} onChange={()=>onClick(key)} />
+      <input tabIndex="-1" type="checkbox" checked={checked} onChange={()=>onClick(id)} />
       <span className={checked ? 'checkbox-checked' : ''}>{label}</span>
     </div>
     {/* <button type="button" className="checkbox-delete" onClick={()=>onDelete(key)}>
       x
     </button> */}
-   <DeleteIcon className="deleteicon" sx={{ '&:hover': {color: 'red',cursor:"pointer" }}} onClick={()=>onDelete(key)}/>
+   <DeleteIcon className="deleteicon" sx={{ '&:hover': {color: 'red',cursor:"pointer" }}} onClick={()=>onDelete(id)}/>
   </div>
 );
