@@ -5,7 +5,14 @@ export const TodoResults = (props) => {
   const { todos } = props;
 
   const calculateChecked = () => {
-    // Function to calculate completed tasks
+   let count=0;
+   todos.map((todo)=>{
+    if(todo.checked===true)
+    {
+      count++;
+    }
+   })
+   return count;
   };
 
   return (

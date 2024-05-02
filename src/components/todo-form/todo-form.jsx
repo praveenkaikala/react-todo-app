@@ -1,12 +1,23 @@
 import * as React from "react";
 import "./todo-form.scss";
-
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 export const TodoForm = (props) => {
   const { todos, setTodos } = props;
   const [task, setTask] = React.useState("");
 
   const handleAddTodo = () => {
-    // Function to add todo
+    if(task.length>0)
+    {
+       const todo={
+      id:todos.length,
+      label:task,
+      checked:false
+    }
+    setTodos(prev=>[...prev,todo])
+    setTask("")
+    }
+   
   };
 
   const handleKeyUp = (e) => {
@@ -17,10 +28,9 @@ export const TodoForm = (props) => {
 
   return (
     <div className="todo-form">
-      <input placeholder="Enter new task" value={task} onChange={(e) => setTask(e.target.value)} onKeyUp={handleKeyUp} />
-      <button type="button" onClick={handleAddTodo}>
-        Add task
-      </button>
+      <TextField id="outlined-basic" label="enter new task" value={task} onChange={(e) => setTask(e.target.value)} onKeyUp={handleKeyUp} variant="outlined" />
+     
+      <Button variant="contained" onClick={handleAddTodo}>Add task</Button>
     </div>
   );
 };
