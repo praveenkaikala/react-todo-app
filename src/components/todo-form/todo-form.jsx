@@ -10,7 +10,7 @@ export const TodoForm = (props) => {
     if(task.length>0)
     {
        const todo={
-      id:todos.length,
+      id:todos.length+1,
       label:task,
       checked:false
     }
